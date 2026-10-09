@@ -6,19 +6,14 @@
     <title>Laboratório Virtual de Química</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Sutil animação de entrada */
         .fade-in {
             animation: fadeIn 0.8s ease-out forwards;
             opacity: 0;
             transform: translateY(10px);
         }
         @keyframes fadeIn {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            to { opacity: 1; transform: translateY(0); }
         }
-        /* Efeito glassmorphism para os cards */
         .glass-card {
             background: rgba(15, 23, 42, 0.7);
             backdrop-filter: blur(10px);
@@ -26,18 +21,14 @@
         }
     </style>
 </head>
-<body class="bg-slate-950 font-sans text-slate-100 min-h-screen flex flex-col items-center justify-center p-6 relative overflow-x-hidden">
+<body class="bg-slate-950 font-sans text-slate-100 min-h-screen flex flex-col items-center justify-center p-6 md:p-12 relative overflow-x-hidden">
 
-    <!-- Efeito de brilho no fundo (como nos simuladores) -->
     <div class="fixed top-[-20%] left-[-10%] w-[50%] h-[50%] bg-cyan-900/20 rounded-full blur-[120px] pointer-events-none"></div>
     <div class="fixed bottom-[-20%] right-[-10%] w-[50%] h-[50%] bg-sky-900/20 rounded-full blur-[120px] pointer-events-none"></div>
 
     <div class="max-w-6xl w-full z-10 flex flex-col items-center">
         
-        <!-- Cabeçalho -->
         <div class="text-center mb-16 fade-in" style="animation-delay: 0.1s;">
-            <!-- Remova ou comente a imagem se o logo não se adaptar bem no fundo escuro -->
-            <!-- <img src="logo.png" alt="Logo" class="h-16 mx-auto mb-6 opacity-90 hover:opacity-100 transition-opacity"> -->
             <h1 class="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-sky-500 tracking-tight mb-4">
                 Laboratório Virtual de Química
             </h1>
@@ -46,67 +37,59 @@
             </p>
         </div>
 
-        <!-- Grid de Simuladores -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
             
             <!-- Simulador 1 -->
-            <div class="glass-card border border-slate-800 rounded-2xl p-8 flex flex-col hover:border-cyan-500/50 hover:shadow-[0_0_30px_rgba(8,145,178,0.15)] transition-all duration-300 group fade-in" style="animation-delay: 0.2s;">
-                <div class="w-14 h-14 rounded-xl bg-slate-800/80 border border-slate-700 flex items-center justify-center mb-6 group-hover:bg-cyan-900/30 transition-colors">
-                    <!-- Ícone genérico SVG (Átomo/Orbital) -->
-                    <svg class="w-8 h-8 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path>
-                    </svg>
+            <div class="glass-card border border-slate-800 rounded-2xl flex flex-col hover:border-cyan-500/50 hover:shadow-[0_0_30px_rgba(8,145,178,0.15)] transition-all duration-300 group fade-in overflow-hidden" style="animation-delay: 0.2s;">
+                <div class="h-48 w-full bg-slate-900 border-b border-slate-800 relative overflow-hidden">
+                    <img src="thumb-orbitais.png" alt="Simulador Orbitais" class="w-full h-full object-cover object-center opacity-60 group-hover:opacity-100 transition-all duration-500 transform group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[rgba(15,23,42,1)] via-[rgba(15,23,42,0.4)] to-transparent"></div>
                 </div>
-                <h2 class="text-2xl font-bold text-slate-100 mb-3 group-hover:text-cyan-300 transition-colors">Orbitais Moleculares e Ligações π</h2>
-                <p class="text-slate-400 text-sm leading-relaxed mb-8 flex-grow">
-                    Visualize em 3D a sobreposição lateral de orbitais <em>p</em> e o emparelhamento de elétrons na formação de ligações duplas e triplas (Eteno, Etino e Pentadieno).
-                </p>
-                <a href="orbitais.html" class="w-full bg-slate-800 hover:bg-cyan-600 text-cyan-400 hover:text-white border border-slate-700 hover:border-cyan-500 font-semibold py-3 px-4 rounded-xl text-center transition-all duration-300 flex items-center justify-center gap-2">
-                    Acessar Simulador
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                </a>
+                <div class="p-6 flex flex-col flex-grow relative z-10">
+                    <h2 class="text-xl font-bold text-slate-100 mb-3 group-hover:text-cyan-300 transition-colors">Orbitais Moleculares e Ligações π</h2>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6 flex-grow">
+                        Visualize em 3D a sobreposição lateral de orbitais <em>p</em> e o emparelhamento de elétrons na formação de ligações duplas e triplas.
+                    </p>
+                    <a href="orbitais.html" class="w-full bg-slate-800 hover:bg-cyan-600 text-cyan-400 hover:text-white border border-slate-700 hover:border-cyan-500 font-semibold py-3 px-4 rounded-xl text-center transition-all duration-300">
+                        Acessar Simulador
+                    </a>
+                </div>
             </div>
 
             <!-- Simulador 2 -->
-            <div class="glass-card border border-slate-800 rounded-2xl p-8 flex flex-col hover:border-sky-500/50 hover:shadow-[0_0_30px_rgba(14,165,233,0.15)] transition-all duration-300 group fade-in" style="animation-delay: 0.3s;">
-                <div class="w-14 h-14 rounded-xl bg-slate-800/80 border border-slate-700 flex items-center justify-center mb-6 group-hover:bg-sky-900/30 transition-colors">
-                    <!-- Ícone Bateria/Pilha -->
-                    <svg class="w-8 h-8 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                    </svg>
+            <div class="glass-card border border-slate-800 rounded-2xl flex flex-col hover:border-sky-500/50 hover:shadow-[0_0_30px_rgba(14,165,233,0.15)] transition-all duration-300 group fade-in overflow-hidden" style="animation-delay: 0.3s;">
+                <div class="h-48 w-full bg-slate-900 border-b border-slate-800 relative overflow-hidden">
+                    <img src="thumb-daniell.png" alt="Simulador Pilha de Daniell" class="w-full h-full object-cover object-center opacity-60 group-hover:opacity-100 transition-all duration-500 transform group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[rgba(15,23,42,1)] via-[rgba(15,23,42,0.4)] to-transparent"></div>
                 </div>
-                <h2 class="text-2xl font-bold text-slate-100 mb-3 group-hover:text-sky-300 transition-colors">Pilha de Daniell (Padrão)</h2>
-                <p class="text-slate-400 text-sm leading-relaxed mb-8 flex-grow">
-                    Acompanhe o funcionamento microscópico da célula galvânica Zn/Cu. Observe o fluxo de elétrons, a migração iônica na ponte salina e a variação física de massa dos eletrodos.
-                </p>
-                <a href="daniell.html" class="w-full bg-slate-800 hover:bg-sky-600 text-sky-400 hover:text-white border border-slate-700 hover:border-sky-500 font-semibold py-3 px-4 rounded-xl text-center transition-all duration-300 flex items-center justify-center gap-2">
-                    Acessar Simulador
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                </a>
+                <div class="p-6 flex flex-col flex-grow relative z-10">
+                    <h2 class="text-xl font-bold text-slate-100 mb-3 group-hover:text-sky-300 transition-colors">Pilha de Daniell (Padrão)</h2>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6 flex-grow">
+                        Acompanhe o funcionamento microscópico da célula galvânica Zn/Cu. Observe o fluxo de elétrons, a migração iônica e a variação de massa.
+                    </p>
+                    <a href="daniell.html" class="w-full bg-slate-800 hover:bg-sky-600 text-sky-400 hover:text-white border border-slate-700 hover:border-sky-500 font-semibold py-3 px-4 rounded-xl text-center transition-all duration-300">
+                        Acessar Simulador
+                    </a>
+                </div>
             </div>
 
             <!-- Simulador 3 -->
-            <div class="glass-card border border-slate-800 rounded-2xl p-8 flex flex-col hover:border-orange-500/50 hover:shadow-[0_0_30px_rgba(249,115,22,0.15)] transition-all duration-300 group fade-in" style="animation-delay: 0.4s;">
-                <div class="w-14 h-14 rounded-xl bg-slate-800/80 border border-slate-700 flex items-center justify-center mb-6 group-hover:bg-orange-900/30 transition-colors">
-                    <!-- Ícone Termodinâmica/Ajuste -->
-                    <svg class="w-8 h-8 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
-                    </svg>
+            <div class="glass-card border border-slate-800 rounded-2xl flex flex-col hover:border-orange-500/50 hover:shadow-[0_0_30px_rgba(249,115,22,0.15)] transition-all duration-300 group fade-in overflow-hidden" style="animation-delay: 0.4s;">
+                <div class="h-48 w-full bg-slate-900 border-b border-slate-800 relative overflow-hidden">
+                    <img src="thumb-nernst.png" alt="Simulador Equação de Nernst" class="w-full h-full object-cover object-center opacity-60 group-hover:opacity-100 transition-all duration-500 transform group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[rgba(15,23,42,1)] via-[rgba(15,23,42,0.4)] to-transparent"></div>
                 </div>
-                <h2 class="text-2xl font-bold text-slate-100 mb-3 group-hover:text-orange-300 transition-colors">Pilha de Daniell (Avançada)</h2>
-                <p class="text-slate-400 text-sm leading-relaxed mb-8 flex-grow">
-                    Aplique a <strong>Equação de Nernst</strong> em tempo real. Altere as concentrações molares das soluções dos béqueres e veja instantaneamente o impacto no potencial global (DDP) da pilha.
-                </p>
-                <a href="daniell-nernst.html" class="w-full bg-slate-800 hover:bg-orange-600 text-orange-400 hover:text-white border border-slate-700 hover:border-orange-500 font-semibold py-3 px-4 rounded-xl text-center transition-all duration-300 flex items-center justify-center gap-2">
-                    Acessar Simulador
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                </a>
+                <div class="p-6 flex flex-col flex-grow relative z-10">
+                    <h2 class="text-xl font-bold text-slate-100 mb-3 group-hover:text-orange-300 transition-colors">Pilha de Daniell (Avançada)</h2>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6 flex-grow">
+                        Aplique a <strong>Equação de Nernst</strong> em tempo real. Altere as concentrações molares e veja o impacto instantâneo no potencial (DDP).
+                    </p>
+                    <a href="daniell-nernst.html" class="w-full bg-slate-800 hover:bg-orange-600 text-orange-400 hover:text-white border border-slate-700 hover:border-orange-500 font-semibold py-3 px-4 rounded-xl text-center transition-all duration-300">
+                        Acessar Simulador
+                    </a>
+                </div>
             </div>
 
-        </div>
-
-        <div class="mt-16 text-slate-500 text-sm fade-in" style="animation-delay: 0.5s;">
-            Criado para exploração visual e mitigação de concepções alternativas em Química.
         </div>
     </div>
 
